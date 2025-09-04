@@ -15,4 +15,4 @@ updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
 deleted_at TIMESTAMPTZ NULL
 );
 -->insert into table users<--
-insert into users(firstname, lastname, mobile_number, email, password) values ('Joan C.','Ayala','36123156','joan@gmail.com','1234');
+insert into users(firstname, lastname, mobile_number, email, password) values ('Paco Porros','Ayala','36123156','paco@gmail.com','1234');
