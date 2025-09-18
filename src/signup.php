@@ -1,7 +1,7 @@
 <?php
 //step 1. Get database connection
 require('../config/database.php');
-//step 2. Get form-data
+ 
 $f_name = $_POST['fname'];
 $l_name = $_POST['lname'];
 $m_number = $_POST['mnumber'];
@@ -33,7 +33,7 @@ ide_number, email, password
 ) 
 values(
 '$f_name', '$l_name', '$m_number', '$id_number', 
-'$e_mail', '$ecn_pass'
+'$e_mail', '$p_wd'
 )
 ";
 //step 4. Execute query
