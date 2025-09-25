@@ -9,7 +9,9 @@ $id_number = $_POST['idnumber'];
 $e_mail = $_POST['email'];
 $p_wd = $_POST['passwd'];
 
-$ecn_pass = password_hash($p_wd, PASSWORD_DEFAULT );
+
+//$ecn_pass = password_hash($p_wd, PASSWORD_DEFAULT );
+$ecn_pass = md5($p_wd);
 $check_email=" 
 SELECT 
     u.email
