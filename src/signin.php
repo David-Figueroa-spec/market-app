@@ -18,7 +18,7 @@ $sql_check_user=" select
                 limit 1
 ";
 //Step 4. Execute query
-$res_check = pg_query($conn, $sql_check_user);
+$res_check = pg_query($conn_supa, $sql_check_user);
 
 if(pg_num_rows($res_check) > 0){
    // echo "User exist. Go to main page!!";

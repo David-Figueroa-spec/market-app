@@ -21,7 +21,7 @@ WHERE
     email = '$e_mail' or ide_number = '$id_number'
 LIMIT 1    
 ";
-$res_check = pg_query($conn, $check_email);
+$res_check = pg_query($conn_supa, $check_email);
 if(pg_num_rows($res_check) > 0){
     echo"<script>alert('User already exits !!')</script>";+
     header('refresh:0;url=signup.html');
@@ -39,7 +39,7 @@ values(
 )
 ";
 //step 4. Execute query
-$res = pg_query($conn, $query);
+$res = pg_query($conn_supa, $query);
 
 //step 5. Validate result
 
