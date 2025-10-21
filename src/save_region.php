@@ -5,48 +5,32 @@
 
 require('../config/database.php');
 
-// Verificar conexión
-if (!$conn_supa) {
-    echo "<script>
-            alert('❌ Error: No se pudo conectar a Supabase.');
-            window.location.href = 'add_region.php';
-          </script>";
-    exit;
-}
+// Capturar datos del formulario
+$name = trim($_POST['name'] ?? '');
+$abbrev = trim($_POST['abbrev'] ?? '');
+$code = trim($_POST['code'] ?? '');
+$id_countries = (int)($_POST['id_countries'] ?? 0);
 
-// Capturar datos
-$name = $_POST['name'] ?? '';
-$abbrev = $_POST['abbrev'] ?? '';
-$code = $_POST['code'] ?? '';
-$id_countries = $_POST['id_countries'] ?? '';
 
-// Validar datos mínimos
-if (trim($name) == '' || trim($id_countries) == '') {
-    echo "<script>
-            alert('⚠️ Debes ingresar el nombre de la región y seleccionar un país.');
-            window.location.href = 'add_region.php';
-          </script>";
-    exit;
-}
-
-// Insertar registro
+// Insertar en la base de datos de manera segura
 $sql_insert = "
     INSERT INTO regions (name, abbrev, code, id_countries, status, created_at)
-    VALUES ('$name', '$abbrev', '$code', $id_countries, TRUE, NOW())
+    VALUES ($1, $2, $3, $4, TRUE, NOW())
 ";
-$res = pg_query($conn_supa, $sql_insert);
+$res = pg_query_params($conn_supa, $sql_insert, [$name, $abbrev, $code, $id_countries]);
 
-// Verificar resultado
+// Mostrar resultado
 if ($res) {
     echo "<script>
-            alert('✅ Conexión exitosa: Región registrada correctamente en Supabase.');
-             
+            alert('✅ Región registrada correctamente.');
+            // Redirigir al formulario o a donde necesites
+            window.location.href = 'index.html';
           </script>";
 } else {
     $error = addslashes(pg_last_error($conn_supa));
     echo "<script>
             alert('❌ Error al registrar en Supabase:\\n$error');
-             
+            window.history.back();
           </script>";
 }
 ?>
