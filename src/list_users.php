@@ -21,23 +21,37 @@ require('../config/database.php');
         
 </tr>
 <?php
-    sql_users = " 
-        //
-    ";
-?>
-<tr>
-        <td>Joe Doe</td>
-        <td>JoeDoe@gmail.com</td>
-        <td>165413130</td>
-        <td>3165651</td>
-        <td>Active</td>
+    $sql_users = "
+    select 
+    u.firstname ||' '|| u.lastname as full_name, 
+    u.email, 
+    u.ide_number, 
+    u.mobile_number, 
+    case when u.status = true then 'Active' else 'Inactive' end as status 
+    from  users as u ";
+    $result = pg_query($conn_supa, $sql_users);
+    if (!$result){
+        die("Error: ". pg_last_error());
+    }
+    while ($row = pg_fetch_assoc($result)){
+        echo "
+            <tr>
+                <td>".$row['full_name'] ."</td>
+                <td>".$row['ide_number'] ."</td>
+                <td>".$row['mobile_number'] ."</td>
+                <td>".$row['status'] ."</td>
+                <td>".$row['email'] ."</td>
         <td>
-            <a href="#"><img src="icons/lupa.png" width="20"></a>
-            <a href="#"><img src="icons/lapiz.png" width="20"></a>
-            <a href="#"><img src="icons/papelera.png" width="20"></a>
+            <a href='#'><img src='icons/lupa.png' width='20'></a>
+            <a href='#'><img src='icons/lapiz.png' width='20'></a>
+            <a href='#'><img src='icons/papelera.png' width='20'></a>
         </td>
         
-</tr>
+        </tr>
+        ";
+    }
+?>
+
     </table>    
 </body>
 </html>
