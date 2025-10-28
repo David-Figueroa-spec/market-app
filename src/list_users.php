@@ -8,9 +8,14 @@ require('../config/database.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marketapp - list_users</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
+
 <body>
-    <table border="1" align="Center";>
+    <div class="container mt-3">
+    <table  class="table table-striped" class=table;>
      <tr>
         <th>Full name</th>
         <th>E-mail</th>
@@ -23,6 +28,7 @@ require('../config/database.php');
 <?php
     $sql_users = "
     select 
+    u.id as user_id,
     u.firstname ||' '|| u.lastname as full_name, 
     u.email, 
     u.ide_number, 
@@ -37,14 +43,15 @@ require('../config/database.php');
         echo "
             <tr>
                 <td>".$row['full_name'] ."</td>
+                <td>".$row['email'] ."</td>
                 <td>".$row['ide_number'] ."</td>
                 <td>".$row['mobile_number'] ."</td>
                 <td>".$row['status'] ."</td>
-                <td>".$row['email'] ."</td>
         <td>
             <a href='#'><img src='icons/lupa.png' width='20'></a>
             <a href='#'><img src='icons/lapiz.png' width='20'></a>
-            <a href='#'><img src='icons/papelera.png' width='20'></a>
+            <a href='delete_users.php?userId=".$row['user_id']."'><img 
+            src='icons/papelera.png' width='20'></a>
         </td>
         
         </tr>
@@ -52,6 +59,7 @@ require('../config/database.php');
     }
 ?>
 
-    </table>    
+    </table> 
+    </div>   
 </body>
 </html>
