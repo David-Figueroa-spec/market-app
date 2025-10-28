@@ -50,8 +50,8 @@ require('../config/database.php');
         <td>
             <a href='#'><img src='icons/lupa.png' width='20'></a>
             <a href='#'><img src='icons/lapiz.png' width='20'></a>
-            <a href='delete_users.php?userId=".$row['user_id']."'><img 
-            src='icons/papelera.png' width='20'></a>
+            <a href='delete_user.php?userId=".$row['user_id']."'>
+            <img src='icons/papelera.png' width='20'></a>
         </td>
         
         </tr>
