@@ -49,7 +49,7 @@ require('../config/database.php');
                 <td>".$row['status'] ."</td>
         <td>
             <a href='#'><img src='icons/lupa.png' width='20'></a>
-            <a href='#'><img src='icons/lapiz.png' width='20'></a>
+            <a href='edit_user_form.php?userId=".$row['user_id']."'><img src='icons/lapiz.png' width='20'></a>
             <a href='delete_user.php?userId=".$row['user_id']."'>
             <img src='icons/papelera.png' width='20'></a>
         </td>
