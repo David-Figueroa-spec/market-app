@@ -10,7 +10,7 @@ $supa_port  = "6543";
 //Database connection to local server
 $local_host = "localhost";//127.0.0.1
 $local_user = "postgres";
-$local_password = "unicesmag";
+$local_password = "123";
 $local_dbname = "marketapp";
 $local_port  = "5432";
 
