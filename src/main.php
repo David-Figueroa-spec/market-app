@@ -17,7 +17,8 @@ if(!isset($_SESSION['session_user_id'])){
 </head>
 <body>
     <br>
-    <center><h10>User:</b>Here print your name</h10></center>
+    <center><h10>User:</b><?php echo $_SESSION['session_user_fullname'];
+    ?></h10></center>
     <br>
     <center><a href = "list_users.php">list all users</a> | 
     <a href = "logout.php">logout</a></center>
