@@ -8,6 +8,7 @@ $m_number =  trim ($_POST['mnumber']);
 $id_number = trim ( $_POST['idnumber']);
 $e_mail = trim ( $_POST['email']);
 $p_wd = trim ( $_POST['passwd']);
+$url_photo = "user_default.png";
 
 
 //$ecn_pass = password_hash($p_wd, PASSWORD_DEFAULT );
@@ -31,11 +32,11 @@ if(pg_num_rows($res_check) > 0){
 $query="
 insert into users(
 firstname, lastname, mobile_number, 
-ide_number, email, password
+ide_number, email, password,url_photo
 ) 
 values(
 '$f_name', '$l_name', '$m_number', '$id_number', 
-'$e_mail', '$ecn_pass'
+'$e_mail', '$ecn_pass','$url_photo'
 )
 ";
 //step 4. Execute query

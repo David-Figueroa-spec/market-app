@@ -50,6 +50,7 @@ if (!$result){
     name="lname" 
     value="<?php echo $lname?>"
     required/><br><br>
+    <label>User photo </label><br><imput type="file" name="photo_user">
     <button>Update user</button>
     </form></form>
 </body>
