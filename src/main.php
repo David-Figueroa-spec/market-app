@@ -16,11 +16,22 @@ if(!isset($_SESSION['session_user_id'])){
     <title>Marketapp - Home</title>
 </head>
 <body>
-    <br>
-    <center><h10>User:</b><?php echo $_SESSION['session_user_fullname'];
-    ?></h10></center>
-    <br>
-    <center><a href = "list_users.php">list all users</a> | 
-    <a href = "logout.php">logout</a></center>
+    <table border="0" align = "center">
+    <tr>
+        <td><h10>User:</b>
+        <?php echo $_SESSION['session_user_fullname'];
+    ?></h10>
+        
+    <td>
+    <?php echo "<img src='".$_SESSION['session_user_url_photo'] ."'width='50'>"; ?>
+   
+
+    </td>
+    </tr>
+</table>
+   <center> 
+    <a href = "list_users.php">list all users</a> | 
+    <a href = "logout.php">logout</a>
+    </center>
 </body>
 </html>

@@ -56,6 +56,14 @@ echo $_SESSION['session_user_id'] ;
                 <td>".$row['ide_number'] ."</td>
                 <td>".$row['mobile_number'] ."</td>
                 <td>".$row['status'] ."</td>
+
+
+
+
+
+
+
+                
                <td> <img src=".$row['url_photo']." width = 
                 '30' alt='User photo'>
                 </td>
